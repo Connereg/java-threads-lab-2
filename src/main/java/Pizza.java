@@ -8,6 +8,7 @@ public class Pizza {
       Cheese cheese = new Cheese();
       Bake bake = new Bake();
 
+
       java.util.List<Thread> cookingSteps = new java.util.ArrayList<>();
       cookingSteps.add(base);
       cookingSteps.add(sauce);
@@ -16,7 +17,11 @@ public class Pizza {
       cookingSteps.add(bake);
 
       for (Thread step : cookingSteps) {
+          // v / STARTING BASED ON COMPUTER'S LOGIC WITHOUT join
           step.start();
+          // v / FORCES EACH STEP TO BREAK TO NEXT PROCESS UPON COMPLETION
+          step.join();
+
       }
   }
 
